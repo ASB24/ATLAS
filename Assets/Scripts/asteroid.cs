@@ -31,8 +31,14 @@ public class asteroid : MonoBehaviour
         return sprites[index];
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(gameObject);
+        if (collision.gameObject.tag == "boundary")
+        {
+            Destroy(gameObject);
+        }else if(collision.gameObject.tag == "bullet")
+        {
+            Destroy(gameObject);
+        }
     }
 }

@@ -17,4 +17,9 @@ public class bulletMovement : MonoBehaviour
     {
         transform.Translate(Vector2.right * speed * Time.deltaTime);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "asteroid") Destroy(gameObject);
+    }
 }
