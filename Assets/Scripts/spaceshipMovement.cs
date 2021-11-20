@@ -25,4 +25,12 @@ public class spaceshipMovement : MonoBehaviour
     {
         Instantiate(bullet, new Vector3(transform.position.x-1.5f, transform.position.y, transform.position.z), Quaternion.identity);
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.collider.tag == "boundary")
+        {
+            Time.timeScale = 0;
+        }
+    }
 }

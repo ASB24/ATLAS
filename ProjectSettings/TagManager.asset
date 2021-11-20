@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - spaceShip
+  - asteroid
+  - bullet
   layers:
   - Default
   - TransparentFX
