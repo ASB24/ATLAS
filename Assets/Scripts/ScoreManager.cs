@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
-
+    public healthBar HealthBar;
     public Text ScoreText;
     public int score;
 
@@ -31,6 +31,7 @@ public class ScoreManager : MonoBehaviour
         {
             score -= 5;
             ScoreText.text = score.ToString();
+            HealthBar.SetHealth(score);
         }
     }
 }

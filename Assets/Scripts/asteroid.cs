@@ -19,6 +19,7 @@ public class asteroid : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        transform.Rotate(0, 0, 6.0f * 40.0f * Time.deltaTime);
         if (isSmall) rb.gravityScale = -0.6f;
         else rb.gravityScale = -0.4f;
     }

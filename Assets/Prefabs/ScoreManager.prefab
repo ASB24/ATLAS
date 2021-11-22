@@ -44,5 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5097e3685c93b1c4cab674bb31e58575, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HealthBar: {fileID: 9093842948304039687, guid: d7cd06ad995d2bb4e9e248747d362257, type: 3}
   ScoreText: {fileID: 0}
   score: 0
