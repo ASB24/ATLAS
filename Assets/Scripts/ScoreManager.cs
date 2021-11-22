@@ -9,10 +9,14 @@ public class ScoreManager : MonoBehaviour
     public healthBar HealthBar;
     public Text ScoreText;
     public int score;
+    public AudioClip endMusic;
+    private AudioSource audio;
 
     // Start is called before the first frame update
     void Start()
     {
+        audio = GetComponent<AudioSource>();
+        score = 10;
         ScoreText.text = score.ToString();
         InvokeRepeating("decreasePoints", 0.0f, 10.0f);
     }
@@ -27,11 +31,22 @@ public class ScoreManager : MonoBehaviour
 
     void decreasePoints()
     {
-        if (score > 0)
+        if (score >= 5)
         {
             score -= 5;
-            ScoreText.text = score.ToString();
-            HealthBar.SetHealth(score);
         }
+        else
+        {
+            score = 0;
+        }
+        ScoreText.text = score.ToString();
+        HealthBar.SetHealth(score);
+    }
+
+    public void endGame()
+    {
+        audio.Stop();
+        audio.clip = endMusic;
+        audio.Play();
     }
 }

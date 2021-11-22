@@ -6,13 +6,21 @@ public class asteroid : MonoBehaviour
 {
     public Sprite[] asteroids;
     private SpriteRenderer sr;
+    private AudioSource audio;
     private Rigidbody2D rb;
+    private BoxCollider2D cd;
     public bool isSmall = false;
+    public ScoreManager scoreManager;
+    public healthBar HealthBar;
     // Start is called before the first frame update
     void Start()
     {
+        HealthBar = (healthBar)FindObjectOfType(typeof(healthBar));
+        scoreManager = (ScoreManager)FindObjectOfType(typeof(ScoreManager));
+        audio = GetComponent<AudioSource>();
         sr = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
+        cd = GetComponent<BoxCollider2D>();
         sr.sprite = randSprite( asteroids );
     }
 
@@ -26,7 +34,7 @@ public class asteroid : MonoBehaviour
 
     Sprite randSprite( Sprite[] sprites)
     {
-        int index = Random.Range(0,sprites.Length-1);
+        int index = Random.Range(0,sprites.Length);
         Debug.Log("Asteroide: " + sprites[index].name);
         if (index == 2) isSmall = true;
         return sprites[index];
@@ -40,7 +48,19 @@ public class asteroid : MonoBehaviour
         }
         else if(collision.gameObject.tag == "bullet")
         {
-            Destroy(gameObject);
+            if(isSmall) scoreManager.AddPoints(10);
+            else scoreManager.AddPoints(1);
+            scoreManager.ScoreText.text = scoreManager.score.ToString();
+            HealthBar.SetHealth(scoreManager.score);
+            StartCoroutine(explosionSound());
+            cd.enabled = false;
+            sr.enabled = false;
         }
+    }
+
+    private IEnumerator explosionSound()
+    {
+        audio.Play();
+        yield return new WaitWhile(() => audio.isPlaying);
     }
 }

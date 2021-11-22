@@ -6,6 +6,7 @@ public class spaceshipMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
     public bulletMovement bullet;
+    public ScoreManager scoreManager;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -30,6 +31,7 @@ public class spaceshipMovement : MonoBehaviour
         if (collision.gameObject.tag == "boundary")
         {
             Time.timeScale = 0;
+            scoreManager.endGame();
         }
     }
 }

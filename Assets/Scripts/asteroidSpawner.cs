@@ -23,6 +23,6 @@ public class asteroidSpawner : MonoBehaviour
 
     private float randOffset()
     {
-        return Random.Range(-8,5);
+        return Random.Range(-8f,5f);
     }
 }

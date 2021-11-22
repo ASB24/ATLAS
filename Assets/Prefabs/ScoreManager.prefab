@@ -47,3 +47,4 @@ MonoBehaviour:
   HealthBar: {fileID: 9093842948304039687, guid: d7cd06ad995d2bb4e9e248747d362257, type: 3}
   ScoreText: {fileID: 0}
   score: 0
+  endMusic: {fileID: 8300000, guid: 1c0f2eecd4ca8004eb17b1825659e2c6, type: 3}

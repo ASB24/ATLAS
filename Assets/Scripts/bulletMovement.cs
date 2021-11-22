@@ -5,15 +5,10 @@ using UnityEngine.UI;
 
 public class bulletMovement : MonoBehaviour
 {
-    public ScoreManager scoreManager;
-    public healthBar HealthBar;
-
     // Start is called before the first frame update
     private float speed = 10;
     void Start()
     {
-        HealthBar = (healthBar)FindObjectOfType(typeof(healthBar));
-        scoreManager = (ScoreManager)FindObjectOfType(typeof(ScoreManager));
         transform.Rotate(0f, 0f, 180f);
         Application.targetFrameRate = 60;
     }
@@ -28,9 +23,6 @@ public class bulletMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "asteroid")
         {
-            scoreManager.AddPoints(10);
-            scoreManager.ScoreText.text = scoreManager.score.ToString();
-            HealthBar.SetHealth(scoreManager.score);
             Destroy(gameObject);
         }
         else if (collision.gameObject.tag == "boundary") {
