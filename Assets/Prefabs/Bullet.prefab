@@ -120,7 +120,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b930adb4d2e9cb749b2954d4196e4eb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreManager: {fileID: 0}
+  scoreManager: {fileID: 6983724906089122320, guid: aec61808d36dc8844840ee6d03ae5c57, type: 3}
+  HealthBar: {fileID: -5676406927238561003, guid: d7cd06ad995d2bb4e9e248747d362257, type: 3}
 --- !u!61 &2689133598590208204
 BoxCollider2D:
   m_ObjectHideFlags: 0

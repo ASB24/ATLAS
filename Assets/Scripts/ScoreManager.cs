@@ -14,11 +14,23 @@ public class ScoreManager : MonoBehaviour
     void Start()
     {
         ScoreText.text = score.ToString();
+        InvokeRepeating("decreasePoints", 0.0f, 10.0f);
     }
-    private void update(){
+    private void update()
+    {
     }
 
-    public void AddPoints(int valor) {
+    public void AddPoints(int valor)
+    {
         score += valor;
+    }
+
+    void decreasePoints()
+    {
+        if (score > 0)
+        {
+            score -= 5;
+            ScoreText.text = score.ToString();
+        }
     }
 }
