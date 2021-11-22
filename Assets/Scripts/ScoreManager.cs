@@ -11,17 +11,16 @@ public class ScoreManager : MonoBehaviour
     public int score;
     public AudioClip endMusic;
     private AudioSource audio;
+    public GameObject popup;
 
     // Start is called before the first frame update
     void Start()
     {
+        popup.SetActive(false); 
         audio = GetComponent<AudioSource>();
         score = 10;
         ScoreText.text = score.ToString();
         InvokeRepeating("decreasePoints", 0.0f, 10.0f);
-    }
-    private void update()
-    {
     }
 
     public void AddPoints(int valor)
@@ -31,11 +30,11 @@ public class ScoreManager : MonoBehaviour
 
     void decreasePoints()
     {
-        if (score >= 5)
+        if (score > 5)
         {
             score -= 5;
         }
-        else
+        else if(score <= 5)
         {
             score = 0;
         }
@@ -45,8 +44,10 @@ public class ScoreManager : MonoBehaviour
 
     public void endGame()
     {
+        Time.timeScale = 0;
         audio.Stop();
         audio.clip = endMusic;
         audio.Play();
+        popup.SetActive(true);
     }
 }
