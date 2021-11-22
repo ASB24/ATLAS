@@ -36,7 +36,8 @@ public class asteroid : MonoBehaviour
         if (collision.gameObject.tag == "boundary")
         {
             Destroy(gameObject);
-        }else if(collision.gameObject.tag == "bullet")
+        }
+        else if(collision.gameObject.tag == "bullet")
         {
             Destroy(gameObject);
         }

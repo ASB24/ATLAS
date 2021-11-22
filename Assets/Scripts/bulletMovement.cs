@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class bulletMovement : MonoBehaviour
 {
+    public ScoreManager scoreManager;
+
     // Start is called before the first frame update
     private float speed = 10;
     void Start()
@@ -20,6 +22,13 @@ public class bulletMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "asteroid") Destroy(gameObject);
+        if (collision.gameObject.tag == "asteroid")
+        {
+            scoreManager.AddPoints();
+            Destroy(gameObject);
+        }
+        else if (collision.gameObject.tag == "boundary") {
+            Destroy(gameObject);
+        }
     }
 }
