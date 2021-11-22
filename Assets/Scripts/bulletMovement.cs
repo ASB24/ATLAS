@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class bulletMovement : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class bulletMovement : MonoBehaviour
     private float speed = 10;
     void Start()
     {
+        scoreManager = (ScoreManager)FindObjectOfType(typeof(ScoreManager));
         transform.Rotate(0f, 0f, 180f);
         Application.targetFrameRate = 60;
     }
@@ -24,7 +26,8 @@ public class bulletMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "asteroid")
         {
-            scoreManager.AddPoints();
+            scoreManager.AddPoints(5);
+            scoreManager.ScoreText.text = scoreManager.score.ToString();
             Destroy(gameObject);
         }
         else if (collision.gameObject.tag == "boundary") {

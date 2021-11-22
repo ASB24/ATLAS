@@ -8,17 +8,17 @@ public class ScoreManager : MonoBehaviour
 {
 
     public Text ScoreText;
-
-    int score = 0;
+    public int score;
 
     // Start is called before the first frame update
     void Start()
     {
-        ScoreText.text = score.ToString() + " points";
+        ScoreText.text = score.ToString();
+    }
+    private void update(){
     }
 
-    public void AddPoints() {
-        score += 1;
-        ScoreText.text = score.ToString() + " points";
+    public void AddPoints(int valor) {
+        score += valor;
     }
 }
