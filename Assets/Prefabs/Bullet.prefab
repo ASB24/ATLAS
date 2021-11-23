@@ -121,8 +121,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b930adb4d2e9cb749b2954d4196e4eb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreManager: {fileID: 6983724906089122320, guid: aec61808d36dc8844840ee6d03ae5c57, type: 3}
-  HealthBar: {fileID: 9093842948304039687, guid: d7cd06ad995d2bb4e9e248747d362257, type: 3}
 --- !u!61 &2689133598590208204
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -161,7 +159,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 9bac5a6c3cd96ff4b9af72954f648414, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0

@@ -6,21 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class Popup : MonoBehaviour
 {
-    [SerializeField] Text TitleUIText;
-    [SerializeField] Button play_again;
-    [SerializeField] Button stop_playing;
+    public Text TitleUIText;
+    public Button play_again;
+    public Button stop_playing;
     public ScoreManager scoremanager;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (scoremanager.score >= 500)
-        {
-            TitleUIText.text = "Has ganado :)";
-        }
-        else {
-            TitleUIText.text = "Has perdido :(";
-        }
+        
     }
 
     public void new_game() {
@@ -31,6 +25,18 @@ public class Popup : MonoBehaviour
     public void menu_return() {
         SceneManager.LoadScene(0);
         Time.timeScale = 1;
+    }
+
+    public void setActive(bool value)
+    {
+        if (value)
+        {
+            gameObject.SetActive(true);
+        }
+        else
+        {
+            gameObject.SetActive(false);
+        }
     }
 
 }

@@ -9,18 +9,33 @@ public class ScoreManager : MonoBehaviour
     public healthBar HealthBar;
     public Text ScoreText;
     public int score;
-    public AudioClip endMusic;
+    public AudioClip loseMusic;
+    public AudioClip winMusic;
     private AudioSource audio;
-    public GameObject popup;
+    public Popup popup;
+    private bool stopUpdate;
 
     // Start is called before the first frame update
     void Start()
     {
-        popup.SetActive(false); 
+        stopUpdate = false;
+        popup.setActive(false); 
         audio = GetComponent<AudioSource>();
         score = 10;
         ScoreText.text = score.ToString();
         InvokeRepeating("decreasePoints", 0.0f, 10.0f);
+    }
+
+    private void Update()
+    {
+        if (score >= 500)
+        {
+            if (!stopUpdate)
+            {
+                endGame();
+                stopUpdate = true;
+            }
+        }
     }
 
     public void AddPoints(int valor)
@@ -44,10 +59,19 @@ public class ScoreManager : MonoBehaviour
 
     public void endGame()
     {
+        if (score >= 500)
+        {
+            popup.TitleUIText.text = "Has ganado :)";
+            audio.clip = winMusic;
+        }
+        else
+        {
+            popup.TitleUIText.text = "Has perdido :(";
+            audio.clip = loseMusic;
+        }
         Time.timeScale = 0;
         audio.Stop();
-        audio.clip = endMusic;
         audio.Play();
-        popup.SetActive(true);
+        popup.setActive(true);
     }
 }
