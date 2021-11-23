@@ -20,7 +20,7 @@ public void endGame()
         popup.setActive(true);
     }
 ```
-Another one of the mechanics that we can find in this class is the definition of the value of the slider representing the quantity of points the player has, and a reduction of 5 points to the score every 10 seconds.
+Another one of the mechanics that we can find in this class is the definition of the value of the slider representing the quantity of points the player has, and a reduction of 5 points to the score every 10 seconds, with an initial delay of 10 seconds.
 ```csharp
 void decreasePoints()
     {
@@ -37,7 +37,19 @@ void decreasePoints()
     }
 ```
 
+## Relevant Code Snippets
+
+In the spaceshipMovement class we define every action and characteristic of the user (in this case the ship) like the framerate that is set default for 30 and we change it to 60, we also import the class bulletMovement to instantiate the bullets that the ship will shoot with the position of the ship at that moment. Furthermore, through the method spaceShipMovement we define the velocity of the ship as a new vector that acts as the ship was jumping.
+
+```csharp
+public void spaceShipMovement()
+    {
+        rb.velocity = new Vector3(0f,3f, 0f);
+    }
+```
+
 In-game score is assigned in reference to the asteroids. These uses a random sprite from a sprite array generated from the asteroid spritesheet. It's thanks to the isSmall bool value that the score for small asteroids is 10 points while the others are only worth 1.
+
 ```csharp
 Sprite randSprite( Sprite[] sprites)
     {

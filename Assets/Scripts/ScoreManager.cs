@@ -21,14 +21,14 @@ public class ScoreManager : MonoBehaviour
         stopUpdate = false;
         popup.setActive(false); 
         audio = GetComponent<AudioSource>();
-        score = 10;
+        score = 1;
         ScoreText.text = score.ToString();
-        InvokeRepeating("decreasePoints", 0.0f, 10.0f);
+        InvokeRepeating("decreasePoints", 10.0f, 10.0f);
     }
 
     private void Update()
     {
-        if (score >= 500)//For testing 
+        if (score >= 50 || score == 0)//For testing 
         {
             if (!stopUpdate)
             {
@@ -59,7 +59,7 @@ public class ScoreManager : MonoBehaviour
 
     public void endGame()
     {
-        if (score >= 500)
+        if (score >= 50)
         {
             popup.TitleUIText.text = "Has ganado :)";
             audio.clip = winMusic;
