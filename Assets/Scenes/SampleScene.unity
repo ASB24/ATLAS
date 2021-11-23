@@ -240,7 +240,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 481, y: 112}
+  m_AnchoredPosition: {x: 566, y: 112}
   m_SizeDelta: {x: 2725.353, y: 2725.353}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &111502542
@@ -385,7 +385,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -515, y: 112}
+  m_AnchoredPosition: {x: -566, y: 112}
   m_SizeDelta: {x: 2725.353, y: 2725.353}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &136273744
@@ -2524,15 +2524,23 @@ PrefabInstance:
     - target: {fileID: 6983724906089122320, guid: aec61808d36dc8844840ee6d03ae5c57, type: 3}
       propertyPath: popup
       value: 
-      objectReference: {fileID: 1733514126}
+      objectReference: {fileID: 1733514131}
     - target: {fileID: 6983724906089122320, guid: aec61808d36dc8844840ee6d03ae5c57, type: 3}
       propertyPath: score
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6983724906089122320, guid: aec61808d36dc8844840ee6d03ae5c57, type: 3}
+      propertyPath: winMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: baf0681d8fc892344b086eb9f2f4a4eb, type: 3}
+    - target: {fileID: 6983724906089122320, guid: aec61808d36dc8844840ee6d03ae5c57, type: 3}
       propertyPath: ScoreText
       value: 
       objectReference: {fileID: 1246710987}
+    - target: {fileID: 6983724906089122320, guid: aec61808d36dc8844840ee6d03ae5c57, type: 3}
+      propertyPath: loseMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 1c0f2eecd4ca8004eb17b1825659e2c6, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aec61808d36dc8844840ee6d03ae5c57, type: 3}
 --- !u!1001 &7928072290566752447

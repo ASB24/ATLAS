@@ -28,7 +28,7 @@ public class ScoreManager : MonoBehaviour
 
     private void Update()
     {
-        if (score >= 500)
+        if (score >= 500)//For testing 
         {
             if (!stopUpdate)
             {
